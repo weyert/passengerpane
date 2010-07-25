@@ -191,7 +191,7 @@ class PassengerApplication < NSObject
   
   def to_hash
     if @new_app
-      @user_defined_data = "  <Directory \"#{File.join(@path.to_s, 'public')}\">\n    Order allow,deny\n    Allow from all\n  </Directory>"
+      @user_defined_data = "  <Directory \"#{File.join(@path.to_s, '')}\">\n    Order allow,deny\n    Allow from all\n  </Directory>"
     else
       update_path_in_user_defined_data!
     end
@@ -230,7 +230,7 @@ class PassengerApplication < NSObject
     data.gsub!(/\n\s*ServerAlias\s+(.+)/, '')
     self.aliases = $1 || ''
     
-    data.gsub!(/\n\s*DocumentRoot\s+"(.+)\/public"/, '')
+    data.gsub!(/\n\s*DocumentRoot\s+"(.+)"/, '')
     self.path = $1
     
     data.gsub!(/\n\s*(Rails|Rack)Env\s+(\w+)/, '')

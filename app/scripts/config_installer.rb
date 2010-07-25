@@ -58,7 +58,7 @@ class ConfigInstaller
   
   def create_vhost_conf(index)
     app = @data[index]
-    public_dir = File.join(app['path'], 'public')
+    public_dir = File.join(app['path'], '')
     vhost = [
       "<VirtualHost #{app['vhostname']}>",
       "  ServerName #{app['host']}",
